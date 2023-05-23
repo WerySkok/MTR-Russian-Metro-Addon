@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "russianmetro:block/moscow_old_ticket_barrier_neutral"
+    },
+    "facing=east": {
+      "model": "russianmetro:block/moscow_old_ticket_barrier_neutral",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "russianmetro:block/moscow_old_ticket_barrier_neutral",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "russianmetro:block/moscow_old_ticket_barrier_neutral",
+      "y": 270
+    }
+  }
+}
