@@ -27,6 +27,13 @@ public class Main {
         registerBlockItem.accept("moscow_old_ticket_barrier_entrance", Blocks.MOSCOW_OLD_TICKET_BARRIER_ENTRANCE, CreativeModeTabs.RUSSIAN_METRO_STUFF);
         registerBlockItem.accept("moscow_old_ticket_barrier_exit", Blocks.MOSCOW_OLD_TICKET_BARRIER_EXIT, CreativeModeTabs.RUSSIAN_METRO_STUFF);
         registerBlockItem.accept("moscow_old_ticket_barrier_side_cover", Blocks.MOSCOW_OLD_TICKET_BARRIER_SIDE_COVER, CreativeModeTabs.RUSSIAN_METRO_STUFF);
+
+        registerBlockItem.accept("moscow_new_ticket_barrier_entrance", Blocks.MOSCOW_NEW_TICKET_BARRIER_ENTRANCE, CreativeModeTabs.RUSSIAN_METRO_STUFF);
+        registerBlockItem.accept("moscow_new_ticket_barrier_exit", Blocks.MOSCOW_NEW_TICKET_BARRIER_EXIT, CreativeModeTabs.RUSSIAN_METRO_STUFF);
+        registerBlockItem.accept("moscow_new_ticket_barrier_side_cover", Blocks.MOSCOW_NEW_TICKET_BARRIER_SIDE_COVER, CreativeModeTabs.RUSSIAN_METRO_STUFF);
+
+        registerBlockItem.accept("moscow_new_ticket_machine", Blocks.MOSCOW_NEW_TICKET_MACHINE, CreativeModeTabs.RUSSIAN_METRO_STUFF);
+
     }
 
     @FunctionalInterface
