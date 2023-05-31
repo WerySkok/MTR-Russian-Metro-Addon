@@ -9,7 +9,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.StringRepresentable;
-import net.minecraft.world.damagesource.DamageSource;
+//import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -65,7 +65,7 @@ public class BlockMoscowOldTicketBarrier extends BlockTicketBarrier {
                         break;
                     case CLOSED:
                         world.setBlockAndUpdate(pos, state.setValue(NORMAL_OPEN, EnumNormallyOpenedTicketBarrier.CLOSED));
-                        entity.hurt(DamageSource.CRAMMING, 1);
+//                        entity.hurt(DamageSource.CRAMMING, 1);
                         break;
                 }
                     Utilities.scheduleBlockTick(world, pos, this, 40);
