@@ -16,7 +16,7 @@
       "y": 90
     },
     "half=upper": {
-      "model": "minecraft:block/air"
+      "model": "russianmetro:block/moscow_new_ticket_machine_top"
     }
   }
 }

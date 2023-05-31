@@ -6,8 +6,8 @@
 		"2": "russianmetro:block/moscow_new_ticket_barrier_texture_open",
 		"4": "russianmetro:block/moscow_new_ticket_barrier_left_door",
 		"5": "russianmetro:block/moscow_new_ticket_barrier_iron_open",
-		"6": "russianmetro:block/moscow_new_ticket_barrier_right_door",
-		"particle": "russianmetro:block/moscow_new_ticket_barrier_left_door"
+		"6": "russianmetro:block/moscow_new_ticket_barrier_exit_right_door",
+		"particle": "russianmetro:block/moscow_new_ticket_barrier_iron"
 	},
 	"elements": [
 		{
@@ -384,8 +384,8 @@
 			"faces": {
 				"north": {"uv": [6.32967, 0, 6.41758, 10.54945], "texture": "#4"},
 				"east": {"uv": [0, 0, 3.16484, 10.54945], "texture": "#4"},
-				"south": {"uv": [6.68132, 0, 6.76923, 10.54945], "texture": "#4"},
-				"west": {"uv": [3.16484, 0, 6.32967, 10.54945], "texture": "#4"},
+				"south": {"uv": [6.30632, 0, 6.39423, 10.54945], "texture": "#4"},
+				"west": {"uv": [3.28984, 0, 6.45467, 10.54945], "texture": "#4"},
 				"up": {"uv": [11.88765, 0.8283, 11.83516, 2.40296], "texture": "#4"},
 				"down": {"uv": [7.99588, 6.11813, 7.90797, 9.28297], "texture": "#4"}
 			}
@@ -619,7 +619,7 @@
 			"rotation": {"angle": 22.5, "axis": "y", "origin": [6.54898, 12.80347, 8.87292]},
 			"faces": {
 				"north": {"uv": [6.41758, 0, 6.32967, 10.54945], "texture": "#6"},
-				"east": {"uv": [6.25467, 0, 3.08984, 10.54945], "texture": "#6"},
+				"east": {"uv": [6.62967, 0, 3.46484, 10.54945], "texture": "#6"},
 				"south": {"uv": [6.76923, 0, 6.68132, 10.54945], "texture": "#6"},
 				"west": {"uv": [3.16484, 0, 0, 10.54945], "texture": "#6"},
 				"up": {"uv": [12.12088, 0.5783, 12.03297, 3.74313], "texture": "#6"},
