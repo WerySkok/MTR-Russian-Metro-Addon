@@ -1,0 +1,6 @@
+{
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "russianmetro:item/spb_horizontal_elevator_door"
+	}
+}

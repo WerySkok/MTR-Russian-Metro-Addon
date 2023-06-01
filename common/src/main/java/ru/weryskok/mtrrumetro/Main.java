@@ -34,6 +34,9 @@ public class Main {
 
         registerBlockItem.accept("moscow_new_ticket_machine", Blocks.MOSCOW_NEW_TICKET_MACHINE, CreativeModeTabs.RUSSIAN_METRO_STUFF);
 
+        registerBlock.accept("spb_horizontal_elevator_door", Blocks.SPB_HORIZONTAL_ELEVATOR_DOOR);
+        registerItem.accept("spb_horizontal_elevator_door", Items.SPB_HORIZONTAL_ELEVATOR_DOOR);
+        registerBlockEntityType.accept("spb_horizontal_elevator_door", BlockEntityTypes.SPB_HORIZONTAL_ELEVATOR_DOOR_TILE_ENTITY);
     }
 
     @FunctionalInterface

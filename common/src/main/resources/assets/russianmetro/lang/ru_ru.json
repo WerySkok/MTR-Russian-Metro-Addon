@@ -6,5 +6,6 @@
   "block.russianmetro.moscow_new_ticket_barrier_entrance": "Новый московский турникет (Вход)",
   "block.russianmetro.moscow_new_ticket_barrier_exit": "Новый московский турникет (Выход)",
   "block.russianmetro.moscow_new_ticket_barrier_side_cover": "Новый московский турникет (Боковая заглушка)",
-  "block.russianmetro.moscow_new_ticket_machine": "Московский автомат по продаже билетов"
+  "block.russianmetro.moscow_new_ticket_machine": "Московский автомат по продаже билетов",
+  "item.russianmetro.spb_horizontal_elevator_door": "Петербургские станционные двери «Горизонтальный лифт»"
 }

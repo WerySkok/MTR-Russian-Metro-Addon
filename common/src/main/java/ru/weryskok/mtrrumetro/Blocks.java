@@ -15,4 +15,5 @@ public interface Blocks {
     RegistryObject<Block> MOSCOW_NEW_TICKET_BARRIER_EXIT = new RegistryObject<>(()-> new BlockMoscowNewTicketBarrier(false));
     RegistryObject<Block> MOSCOW_NEW_TICKET_BARRIER_SIDE_COVER = new RegistryObject<>(BlockMoscowNewTicketBarrierSideCover::new);
     RegistryObject<Block> MOSCOW_NEW_TICKET_MACHINE = new RegistryObject<>(() -> new BlockMoscowNewTicketMachine(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_GRAY).requiresCorrectToolForDrops().strength(2).lightLevel(state -> 5).noOcclusion()));
+    RegistryObject<Block> SPB_HORIZONTAL_ELEVATOR_DOOR = new RegistryObject<>(BlockSPBHorizontalElevatorDoor::new);
 }

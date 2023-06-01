@@ -6,5 +6,6 @@
   "block.russianmetro.moscow_new_ticket_barrier_entrance": "Moscow New Ticket Barrier (Entrance)",
   "block.russianmetro.moscow_new_ticket_barrier_exit": "Moscow New Ticket Barrier (Exit)",
   "block.russianmetro.moscow_new_ticket_barrier_side_cover": "Moscow New Ticket Barrier (Side Cover)",
-  "block.russianmetro.moscow_new_ticket_machine": "Moscow ticket machine"
+  "block.russianmetro.moscow_new_ticket_machine": "Moscow Ticket Machine",
+  "item.russianmetro.spb_horizontal_elevator_door": "St. Petersburg \"Horizontal Elevator\" Station Doors"
 }

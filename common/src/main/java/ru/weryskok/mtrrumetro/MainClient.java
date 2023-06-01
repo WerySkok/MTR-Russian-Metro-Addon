@@ -1,9 +1,9 @@
 package ru.weryskok.mtrrumetro;
 
 import mtr.RegistryClient;
-import mtr.data.PIDSType;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderType;
+import ru.weryskok.mtrrumetro.render.*;
 //import ru.weryskok.mtrrumetro.config.Config;
 
 public class MainClient {
@@ -17,6 +17,9 @@ public class MainClient {
         RegistryClient.registerBlockRenderType(RenderType.translucent(), Blocks.MOSCOW_NEW_TICKET_BARRIER_SIDE_COVER.get());
 
         RegistryClient.registerBlockRenderType(RenderType.cutoutMipped(), Blocks.MOSCOW_NEW_TICKET_MACHINE.get());
+
+        RegistryClient.registerBlockRenderType(RenderType.cutoutMipped(), Blocks.SPB_HORIZONTAL_ELEVATOR_DOOR.get());
+        RegistryClient.registerTileEntityRenderer(BlockEntityTypes.SPB_HORIZONTAL_ELEVATOR_DOOR_TILE_ENTITY.get(), RenderSPBHorizontalElevatorDoor::new);
 //        Config.refreshProperties();
     }
 
