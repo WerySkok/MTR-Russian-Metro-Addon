@@ -4,7 +4,6 @@ import mtr.RegistryClient;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderType;
 import ru.weryskok.mtrrumetro.render.*;
-//import ru.weryskok.mtrrumetro.config.Config;
 
 public class MainClient {
     public static void init() {
@@ -20,7 +19,6 @@ public class MainClient {
 
         RegistryClient.registerBlockRenderType(RenderType.cutoutMipped(), Blocks.SPB_HORIZONTAL_ELEVATOR_DOOR.get());
         RegistryClient.registerTileEntityRenderer(BlockEntityTypes.SPB_HORIZONTAL_ELEVATOR_DOOR_TILE_ENTITY.get(), RenderSPBHorizontalElevatorDoor::new);
-//        Config.refreshProperties();
     }
 
     public static void registerItemModelPredicates() {
