@@ -1,6 +1,6 @@
 modLoader = "javafml"
 loaderVersion = "[36,)"
-license = "MIT"
+license = "LGPL-3.0"
 
 [[mods]]
 modId = "russianmetro"
