@@ -37,6 +37,8 @@ public class Main {
         registerBlock.accept("spb_horizontal_elevator_door", Blocks.SPB_HORIZONTAL_ELEVATOR_DOOR);
         registerItem.accept("spb_horizontal_elevator_door", Items.SPB_HORIZONTAL_ELEVATOR_DOOR);
         registerBlockEntityType.accept("spb_horizontal_elevator_door", BlockEntityTypes.SPB_HORIZONTAL_ELEVATOR_DOOR_TILE_ENTITY);
+
+        registerBlockItem.accept("moscow_old_infosos_stand", Blocks.MOSCOW_OLD_INFOSOS_STAND, CreativeModeTabs.RUSSIAN_METRO_STUFF);
     }
 
     @FunctionalInterface

@@ -1,6 +1,5 @@
 package ru.weryskok.mtrrumetro.items;
 
-import mtr.block.BlockPSDAPGBase;
 import mtr.block.IBlock;
 import mtr.item.ItemWithCreativeTabBase;
 import net.minecraft.core.BlockPos;
@@ -13,6 +12,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import ru.weryskok.mtrrumetro.CreativeModeTabs;
 import ru.weryskok.mtrrumetro.Blocks;
+import ru.weryskok.mtrrumetro.blocks.*;
 
 public class ItemSPBHorizontalElevatorDoor extends ItemWithCreativeTabBase implements IBlock  {
 
@@ -36,7 +36,7 @@ public class ItemSPBHorizontalElevatorDoor extends ItemWithCreativeTabBase imple
             final BlockPos newPos = pos.relative(playerFacing.getClockWise(), x);
 
             for (int y = 0; y < 2; y++) {
-                final BlockState state = getBlockStateFromItem().setValue(BlockPSDAPGBase.FACING, playerFacing).setValue(HALF, y == 1 ? DoubleBlockHalf.UPPER : DoubleBlockHalf.LOWER);
+                final BlockState state = getBlockStateFromItem().setValue(BlockSPBHorizontalElevatorDoor.FACING, playerFacing).setValue(HALF, y == 1 ? DoubleBlockHalf.UPPER : DoubleBlockHalf.LOWER);
                 BlockState newState = state.setValue(SIDE, x == 0 ? EnumSide.LEFT : EnumSide.RIGHT);
                 world.setBlockAndUpdate(newPos.above(y), newState);
             }
