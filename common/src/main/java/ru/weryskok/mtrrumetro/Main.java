@@ -9,11 +9,16 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.function.BiConsumer;
 
 public class Main {
     public static final String MOD_ID = "russianmetro";
+    public static Blocks blocks;
+    public static Items items;
+    public static SoundEvents soundEvents;
+    public static BlockEntityTypes blockEntityTypes;
 
     public static void init(
             BiConsumer<String, RegistryObject<Item>> registerItem,
@@ -23,23 +28,19 @@ public class Main {
             BiConsumer<String, RegistryObject<? extends EntityType<? extends Entity>>> registerEntityType,
             BiConsumer<String, SoundEvent> registerSoundEvent
     ) {
+        //Срать в ините = идея хуйня ебаная.
+        //Лучше разделить на классы, вынести все в свое
+        //Java <3
+        blocks = new Blocks(registerBlock, registerBlockItem);
+        items = new Items(registerItem);
+        soundEvents = new SoundEvents(registerSoundEvent);
+        blockEntityTypes = new BlockEntityTypes(registerBlockEntityType);
 
-        registerBlockItem.accept("moscow_old_ticket_barrier_entrance", Blocks.MOSCOW_OLD_TICKET_BARRIER_ENTRANCE, CreativeModeTabs.RUSSIAN_METRO_STUFF);
-        registerBlockItem.accept("moscow_old_ticket_barrier_exit", Blocks.MOSCOW_OLD_TICKET_BARRIER_EXIT, CreativeModeTabs.RUSSIAN_METRO_STUFF);
-        registerBlockItem.accept("moscow_old_ticket_barrier_side_cover", Blocks.MOSCOW_OLD_TICKET_BARRIER_SIDE_COVER, CreativeModeTabs.RUSSIAN_METRO_STUFF);
-        registerSoundEvent.accept("moscow_old_ticket_barrier_fail", SoundEvents.MOSCOW_OLD_TICKET_BARRIER_FAIL);
+        blocks.registerBlockItems();
+        items.registerItem();
+        soundEvents.regiserEvents();
+        blockEntityTypes.registerBlockEntites();
 
-        registerBlockItem.accept("moscow_new_ticket_barrier_entrance", Blocks.MOSCOW_NEW_TICKET_BARRIER_ENTRANCE, CreativeModeTabs.RUSSIAN_METRO_STUFF);
-        registerBlockItem.accept("moscow_new_ticket_barrier_exit", Blocks.MOSCOW_NEW_TICKET_BARRIER_EXIT, CreativeModeTabs.RUSSIAN_METRO_STUFF);
-        registerBlockItem.accept("moscow_new_ticket_barrier_side_cover", Blocks.MOSCOW_NEW_TICKET_BARRIER_SIDE_COVER, CreativeModeTabs.RUSSIAN_METRO_STUFF);
-
-        registerBlockItem.accept("moscow_new_ticket_machine", Blocks.MOSCOW_NEW_TICKET_MACHINE, CreativeModeTabs.RUSSIAN_METRO_STUFF);
-
-        registerBlock.accept("spb_horizontal_elevator_door", Blocks.SPB_HORIZONTAL_ELEVATOR_DOOR);
-        registerItem.accept("spb_horizontal_elevator_door", Items.SPB_HORIZONTAL_ELEVATOR_DOOR);
-        registerBlockEntityType.accept("spb_horizontal_elevator_door", BlockEntityTypes.SPB_HORIZONTAL_ELEVATOR_DOOR_TILE_ENTITY);
-
-        registerBlockItem.accept("moscow_old_infosos_stand", Blocks.MOSCOW_OLD_INFOSOS_STAND, CreativeModeTabs.RUSSIAN_METRO_STUFF);
     }
 
     @FunctionalInterface
