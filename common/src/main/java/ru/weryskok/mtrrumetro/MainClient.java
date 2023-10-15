@@ -21,6 +21,8 @@ public class MainClient {
         RegistryClient.registerTileEntityRenderer(BlockEntityTypes.SPB_HORIZONTAL_ELEVATOR_DOOR_TILE_ENTITY.get(), RenderSPBHorizontalElevatorDoor::new);
 
         RegistryClient.registerBlockRenderType(RenderType.cutoutMipped(), Blocks.MOSCOW_OLD_INFOSOS_STAND.get());
+
+        RegistryClient.registerBlockRenderType(RenderType.cutoutMipped(), Blocks.MOSCOW_METRO_LOGO.get());
     }
 
     public static void registerItemModelPredicates() {

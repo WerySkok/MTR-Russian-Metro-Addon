@@ -37,6 +37,7 @@ public class Main {
         blockEntityTypes = new BlockEntityTypes(registerBlockEntityType);
 
         blocks.registerBlockItems();
+        blocks.registerBlocks();
         items.registerItem();
         soundEvents.regiserEvents();
         blockEntityTypes.registerBlockEntites();

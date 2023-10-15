@@ -1,27 +1,23 @@
-package ru.weryskok.mtrrumetro.blocks.outside;
+package ru.weryskok.mtrrumetro.blocks;
 
-import it.unimi.dsi.fastutil.doubles.DoubleList;
 import mtr.block.IBlock;
-import mtr.data.RailAngle;
 import mtr.mappings.BlockDirectionalMapper;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MaterialColor;
 import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
-public class MetroLogo extends BlockDirectionalMapper {
+public class BlockMoscowMetroLogo extends BlockDirectionalMapper {
 
-    public MetroLogo() {
-        super(Properties.of(Material.METAL).friction(2f));
+    public BlockMoscowMetroLogo() {
+        super(Properties.of(Material.METAL, MaterialColor.COLOR_GRAY).lightLevel((state) -> 14).noOcclusion().requiresCorrectToolForDrops().strength(2));
     }
 
     @Override
@@ -37,6 +33,6 @@ public class MetroLogo extends BlockDirectionalMapper {
 
     @Override
     public VoxelShape getShape(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, CollisionContext collisionContext) {
-        return Shapes.box(0.3f, 0.3f, 0.3f, 0.7f, 0.7f, 0.7f);
+        return IBlock.getVoxelShapeByDirection(0, 0, 6, 16, 16, 10, IBlock.getStatePropertySafe(blockState, FACING));
     }
 }
