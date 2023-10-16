@@ -1,6 +1,6 @@
 {
-	"parent": "block/block",
 	"credit": "Designed by Anastasiya Trusheva, Made with Blockbench",
+	"parent": "block/block",
 	"texture_size": [91, 91],
 	"textures": {
 		"1": "russianmetro:block/moscow_new_ticket_barrier_glass_panel",
@@ -746,6 +746,43 @@
 			}
 		}
 	],
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [-0.25, 2, 0],
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"thirdperson_lefthand": {
+			"translation": [-0.25, 2, 0],
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"firstperson_righthand": {
+			"translation": [-0.25, 2, 0],
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"firstperson_lefthand": {
+			"translation": [-0.25, 2, 0],
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"ground": {
+			"translation": [0, -1.25, 0],
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"gui": {
+			"rotation": [30, 35, 0],
+			"translation": [-1.25, -2, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"head": {
+			"rotation": [0, 180, 0],
+			"translation": [-0.5, 11.25, 0],
+			"scale": [0.6, 0.6, 0.6]
+		},
+		"fixed": {
+			"rotation": [0, -90, 0],
+			"translation": [0, -1.5, -5.25],
+			"scale": [0.7, 0.7, 0.7]
+		}
+	},
 	"groups": [
 		{
 			"name": "group",
