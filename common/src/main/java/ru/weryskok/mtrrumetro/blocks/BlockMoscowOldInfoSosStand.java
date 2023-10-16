@@ -66,7 +66,7 @@ public class BlockMoscowOldInfoSosStand extends BlockDirectionalMapper implement
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext ctx) {
-        return IBlock.isReplaceable(ctx, Direction.UP, 3) ? defaultBlockState().setValue(FACING, ctx.getHorizontalDirection()).setValue(THIRD, EnumThird.LOWER) : null;
+        return IBlock.isReplaceable(ctx, Direction.UP, 3) ? defaultBlockState().setValue(FACING, ctx.getHorizontalDirection().getOpposite()).setValue(THIRD, EnumThird.LOWER) : null;
     }
 
     @Override
