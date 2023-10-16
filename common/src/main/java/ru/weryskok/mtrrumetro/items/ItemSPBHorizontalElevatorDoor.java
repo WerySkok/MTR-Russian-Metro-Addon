@@ -1,5 +1,6 @@
 package ru.weryskok.mtrrumetro.items;
 
+import mtr.RegistryObject;
 import mtr.block.IBlock;
 import mtr.item.ItemWithCreativeTabBase;
 import net.minecraft.core.BlockPos;
@@ -16,14 +17,16 @@ import ru.weryskok.mtrrumetro.blocks.*;
 
 public class ItemSPBHorizontalElevatorDoor extends ItemWithCreativeTabBase implements IBlock  {
 
+    boolean is_odd;
 
-    public ItemSPBHorizontalElevatorDoor() {
+    public ItemSPBHorizontalElevatorDoor(boolean is_odd) {
         super(CreativeModeTabs.RUSSIAN_METRO_STUFF);
+        this.is_odd = is_odd;
     }
 
     @Override
     public InteractionResult useOn(UseOnContext context) {
-        final int horizontalBlocks = 2;
+        final int horizontalBlocks = is_odd ? 1 : 2;
         if (blocksNotReplaceable(context, horizontalBlocks, 2, getBlockStateFromItem().getBlock())) {
             return InteractionResult.FAIL;
         }
@@ -36,9 +39,11 @@ public class ItemSPBHorizontalElevatorDoor extends ItemWithCreativeTabBase imple
             final BlockPos newPos = pos.relative(playerFacing.getClockWise(), x);
 
             for (int y = 0; y < 2; y++) {
-                final BlockState state = getBlockStateFromItem().setValue(BlockSPBHorizontalElevatorDoor.FACING, playerFacing).setValue(HALF, y == 1 ? DoubleBlockHalf.UPPER : DoubleBlockHalf.LOWER);
-                BlockState newState = state.setValue(SIDE, x == 0 ? EnumSide.LEFT : EnumSide.RIGHT);
-                world.setBlockAndUpdate(newPos.above(y), newState);
+                BlockState state = getBlockStateFromItem().setValue(BlockSPBHorizontalElevatorDoor.FACING, playerFacing).setValue(HALF, y == 1 ? DoubleBlockHalf.UPPER : DoubleBlockHalf.LOWER);
+                if (!is_odd) {
+                    state = state.setValue(SIDE, x == 0 ? EnumSide.LEFT : EnumSide.RIGHT);
+                }
+                world.setBlockAndUpdate(newPos.above(y), state);
             }
         }
 
@@ -47,7 +52,8 @@ public class ItemSPBHorizontalElevatorDoor extends ItemWithCreativeTabBase imple
     }
 
     private BlockState getBlockStateFromItem() {
-        return Blocks.SPB_HORIZONTAL_ELEVATOR_DOOR.get().defaultBlockState();
+        RegistryObject<Block> block = is_odd ? Blocks.SPB_HORIZONTAL_ELEVATOR_DOOR_ODD : Blocks.SPB_HORIZONTAL_ELEVATOR_DOOR;
+        return block.get().defaultBlockState();
     }
 
     // The same implementation from MTR

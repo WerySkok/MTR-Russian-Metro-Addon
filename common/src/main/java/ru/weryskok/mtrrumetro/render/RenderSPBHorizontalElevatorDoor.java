@@ -28,8 +28,11 @@ public class RenderSPBHorizontalElevatorDoor<T extends BlockPSDAPGDoorBase.TileE
     private static final ModelSingleCube MODEL_PSD = new ModelSingleCube(36, 18, 0, 0, 0, 16, 16, 2);
     private static final ModelSingleCube MODEL_PSD_DOOR_LOCKED = new ModelSingleCube(6, 6, 5, 6, 2.1f, 6, 6, 0);
 
-    public RenderSPBHorizontalElevatorDoor(BlockEntityRenderDispatcher dispatcher) {
+    boolean is_odd;
+    
+    public RenderSPBHorizontalElevatorDoor(BlockEntityRenderDispatcher dispatcher, boolean is_odd) {
         super(dispatcher);
+        this.is_odd = is_odd;
     }
 
     @Override
@@ -56,10 +59,28 @@ public class RenderSPBHorizontalElevatorDoor<T extends BlockPSDAPGDoorBase.TileE
             UtilitiesClient.rotateYDegrees(matricesNew, -facing.toYRot());
             UtilitiesClient.rotateXDegrees(matricesNew, 180);
         });
+        if (is_odd) {
+            final StoredMatrixTransformations rightStoredMatrixTransformations = storedMatrixTransformations.copy();
 
+            rightStoredMatrixTransformations.add(matricesNew -> matricesNew.translate(open * (!side ? -1 : 1), 0, 0));
+            rightStoredMatrixTransformations.add(matricesNew -> matricesNew.translate(-0.5, 0, 0));
+            RenderTrains.scheduleRender(new ResourceLocation(String.format("russianmetro:textures/block/spb_horizontal_elevator_door_%s_%s.png", half ? "top" : "bottom", !side ? "right" : "left")), false, RenderTrains.QueuedRenderLayer.EXTERIOR, (matricesNew, vertexConsumer) -> {
+                rightStoredMatrixTransformations.transform(matricesNew);
+                MODEL_PSD.renderToBuffer(matricesNew, vertexConsumer, light, overlay, 1, 1, 1, 1);
+                matricesNew.popPose();
+            });
+
+            if (half && !unlocked) {
+                RenderTrains.scheduleRender(new ResourceLocation("mtr:textures/block/sign/door_not_in_use.png"), false, RenderTrains.QueuedRenderLayer.EXTERIOR, (matricesNew, vertexConsumer) -> {
+                    rightStoredMatrixTransformations.transform(matricesNew);
+                    MODEL_PSD_DOOR_LOCKED.renderToBuffer(matricesNew, vertexConsumer, light, overlay, 1, 1, 1, 1);
+                    matricesNew.popPose();
+                });
+            }
+
+            storedMatrixTransformations.add(matricesNew -> matricesNew.translate(0.5, 0, 0));
+        }
         storedMatrixTransformations.add(matricesNew -> matricesNew.translate(open * (side ? -1 : 1), 0, 0));
-
-
         RenderTrains.scheduleRender(new ResourceLocation(String.format("russianmetro:textures/block/spb_horizontal_elevator_door_%s_%s.png", half ? "top" : "bottom", side ? "right" : "left")), false, RenderTrains.QueuedRenderLayer.EXTERIOR, (matricesNew, vertexConsumer) -> {
             storedMatrixTransformations.transform(matricesNew);
             MODEL_PSD.renderToBuffer(matricesNew, vertexConsumer, light, overlay, 1, 1, 1, 1);

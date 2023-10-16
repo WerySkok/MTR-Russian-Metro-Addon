@@ -20,7 +20,8 @@ public class Blocks {
     public static final RegistryObject<Block> MOSCOW_NEW_TICKET_BARRIER_EXIT = new RegistryObject<>(()-> new BlockMoscowNewTicketBarrier(false));
     public static final RegistryObject<Block> MOSCOW_NEW_TICKET_BARRIER_SIDE_COVER = new RegistryObject<>(BlockMoscowNewTicketBarrierSideCover::new);
     public static final RegistryObject<Block> MOSCOW_NEW_TICKET_MACHINE = new RegistryObject<>(() -> new BlockMoscowNewTicketMachine(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_GRAY).requiresCorrectToolForDrops().strength(2).lightLevel(state -> 5).noOcclusion()));
-    public static final RegistryObject<Block> SPB_HORIZONTAL_ELEVATOR_DOOR = new RegistryObject<>(BlockSPBHorizontalElevatorDoor::new);
+    public static final RegistryObject<Block> SPB_HORIZONTAL_ELEVATOR_DOOR = new RegistryObject<>(() -> new BlockSPBHorizontalElevatorDoor(false));
+    public static final RegistryObject<Block> SPB_HORIZONTAL_ELEVATOR_DOOR_ODD = new RegistryObject<>(() -> new BlockSPBHorizontalElevatorDoor(true));
     public static final RegistryObject<Block> MOSCOW_OLD_INFOSOS_STAND = new RegistryObject<>(BlockMoscowOldInfoSosStand::new);
     public static final RegistryObject<Block> MOSCOW_METRO_LOGO = new RegistryObject<>(BlockMoscowMetroLogo::new);
 
@@ -47,5 +48,6 @@ public class Blocks {
 
     public void registerBlocks(){
         registerBlock.accept("spb_horizontal_elevator_door", Blocks.SPB_HORIZONTAL_ELEVATOR_DOOR);
+        registerBlock.accept("spb_horizontal_elevator_door_odd", Blocks.SPB_HORIZONTAL_ELEVATOR_DOOR_ODD);
     }
 }
