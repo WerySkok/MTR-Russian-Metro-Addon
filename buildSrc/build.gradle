@@ -1,0 +1,20 @@
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation "com.google.code.gson:gson:+"
+	implementation "it.unimi.dsi:fastutil:+"
+	implementation "commons-io:commons-io:+"
+	implementation "org.mtr:Minecraft-Mod-API-Tools:0.0.1"
+}
+
+repositories {
+	flatDir { dirs "../libs" }
+}
+
+java {
+	toolchain {
+		languageVersion.set(JavaLanguageVersion.of(8))
+	}
+}

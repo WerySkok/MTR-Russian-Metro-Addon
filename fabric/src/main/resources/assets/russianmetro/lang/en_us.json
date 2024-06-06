@@ -1,0 +1,14 @@
+{
+	"itemGroup.russianmetro.russianmetro_stuff": "Russian Metro Addon",
+	"block.russianmetro.moscow_old_ticket_barrier_entrance": "Moscow Old Ticket Barrier (Entrance)",
+	"block.russianmetro.moscow_old_ticket_barrier_exit": "Moscow Old Ticket Barrier (Exit)",
+	"block.russianmetro.moscow_old_ticket_barrier_side_cover": "Moscow Old Ticket Barrier (Side Cover)",
+	"block.russianmetro.moscow_new_ticket_barrier_entrance": "Moscow New Ticket Barrier (Entrance)",
+	"block.russianmetro.moscow_new_ticket_barrier_exit": "Moscow New Ticket Barrier (Exit)",
+	"block.russianmetro.moscow_new_ticket_barrier_side_cover": "Moscow New Ticket Barrier (Side Cover)",
+	"block.russianmetro.moscow_new_ticket_machine": "Moscow Ticket Machine",
+	"item.russianmetro.spb_horizontal_elevator_door": "St. Petersburg \"Horizontal Elevator\" Station Doors (Even)",
+	"item.russianmetro.spb_horizontal_elevator_door_odd": "St. Petersburg \"Horizontal Elevator\" Station Doors (Odd)",
+	"block.russianmetro.moscow_old_infosos_stand": "Moscow \"Info-SOS\" Stand",
+	"block.russianmetro.moscow_metro_logo": "Metro Emblem"
+}

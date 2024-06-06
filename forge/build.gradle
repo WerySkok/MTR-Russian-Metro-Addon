@@ -1,89 +1,83 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+import org.mtr.mod.BuildTools
+
 plugins {
-    id "com.github.johnrengelman.shadow"
+	id "net.minecraftforge.gradle" version "+"
+	id "org.spongepowered.mixin" version "+"
 }
 
-architectury {
-    platformSetupLoomIde()
-    forge()
+
+final BuildTools buildTools = new BuildTools(minecraftVersion, "forge", project)
+
+minecraft {
+	mappings channel: "official", version: minecraftVersion
+	runs {
+		configureEach {
+			property "forge.logging.markers", "REGISTRIES"
+			property "forge.logging.console.level", "debug"
+		}
+		client {}
+		server { args "--nogui" }
+	}
 }
 
-loom {
-    accessWidenerPath = project(":common").loom.accessWidenerPath
-    forge {
-        convertAccessWideners = true;
-        extraAccessWideners.add loom.accessWidenerPath.get().asFile.name
-        mixinConfig "russianmetro-common.mixins.json"
-        mixinConfig "russianmetro.mixins.json"
-    }
-}
-
-configurations {
-    common
-    shadowCommon
-    compileClasspath.extendsFrom common
-    runtimeClasspath.extendsFrom common
-    developmentForge.extendsFrom common
-}
+sourceSets.main.resources { srcDir "src/generated/resources" }
 
 dependencies {
-    forge "net.minecraftforge:forge:${rootProject.forge_version}"
-    modApi "${rootProject.architectury_id}:architectury-forge:${rootProject.architectury_version}"
-
-    common(project(path: ":common", configuration: "namedElements")) { transitive false }
-    shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
+	minecraft "net.minecraftforge:forge:${minecraftVersion}-${buildTools.getForgeVersion()}"
+	annotationProcessor "org.spongepowered:mixin:+:processor"
+	implementation fg.deobf("org.mtr:MTR-forge:${mtrVersion}+${minecraftVersion}")
 }
 
-processResources {
-    inputs.property "version", project.version
-
-    filesMatching("META-INF/mods.toml") {
-        expand "version": project.version
-    }
+mixin {
+	add sourceSets.main, "mtr.refmap.json"
+	config "mtr.mixins.json"
+	debug.verbose = true
+	debug.export = true
 }
 
-shadowJar {
-    exclude "fabric.mod.json"
-    exclude "architectury.common.json"
-
-    configurations = [project.configurations.shadowCommon]
-    classifier "dev-shadow"
+java {
+	toolchain {
+		languageVersion.set(JavaLanguageVersion.of(buildTools.javaLanguageVersion))
+	}
+	withSourcesJar()
+	withJavadocJar()
 }
 
-remapJar {
-    input.set shadowJar.archiveFile
-    dependsOn shadowJar
-    classifier null
+tasks.register("setupFiles") {
+	copy {
+		outputs.upToDateWhen { false }
+		from "src/main/mods.template.toml"
+		into "src/main/resources/META-INF"
+		filter(ReplaceTokens, tokens: ["minecraft": minecraftVersion, "version": version])
+		rename "(.+).template.toml", "\$1.toml"
+	}
+
+	delete fileTree("src/main/java/ru/weryskok/mtrrumetro/mod")
+	delete fileTree("src/main/resources/assets")
+	delete fileTree("src/main/resources/data")
+
+	copy {
+		outputs.upToDateWhen { false }
+		from "../fabric/src/main/java/ru/weryskok/mtrrumetro/mod"
+		into "src/main/java/ru/weryskok/mtrrumetro/mod"
+	}
+
+	copy {
+		outputs.upToDateWhen { false }
+		from "../fabric/src/main/resources/assets"
+		into "src/main/resources/assets"
+	}
+
+	copy {
+		outputs.upToDateWhen { false }
+		from "../fabric/src/main/resources/data"
+		into "src/main/resources/data"
+	}
 }
 
-components.java {
-    withVariantsFromConfiguration(project.configurations.shadowRuntimeElements) {
-        skip()
-    }
-}
-
-task moveForgeBuilds() {
-    doLast {
-        delete fileTree("../build").matching {
-            include "**/MTR-Russian-Metro-Addon-forge*"
-        }
-        copy {
-            from "build/libs"
-            into "../build/release"
-            exclude "*dev-shadow.jar"
-            rename "(.+)", "MTR-Russian-Metro-Addon-\$1"
-        }
-        copy {
-            from "../build/release"
-            into "../build/latest"
-            rename { fileName -> fileName.replace(rootProject.mod_version, "latest") }
-        }
-    }
-}
-
-afterEvaluate {
-    for (def task in it.tasks) {
-        if (task == tasks.build) {
-            task.finalizedBy tasks.moveForgeBuilds
-        }
-    }
+build {
+	doLast {
+		buildTools.copyBuildFile()
+	}
 }

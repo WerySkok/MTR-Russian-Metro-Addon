@@ -1,83 +1,49 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+import org.mtr.mod.BuildTools
+
 plugins {
-    id "com.github.johnrengelman.shadow"
+	id "fabric-loom" version "+"
 }
 
-architectury {
-    platformSetupLoomIde()
-    fabric()
-}
+final BuildTools buildTools = new BuildTools(minecraftVersion, "fabric", project)
 
 loom {
-    accessWidenerPath = project(":common").loom.accessWidenerPath
-}
-
-configurations {
-    common
-    shadowCommon
-    compileClasspath.extendsFrom common
-    runtimeClasspath.extendsFrom common
-    developmentFabric.extendsFrom common
+	runConfigs.configureEach { ideConfigGenerated = true }
 }
 
 dependencies {
-    modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
-    modApi "com.terraformersmc:modmenu:${rootProject.mod_menu_version}"
-    modApi "net.fabricmc.fabric-api:fabric-api:${rootProject.fabric_api_version}"
-
-    common(project(path: ":common", configuration: "namedElements")) { transitive false }
-    shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
+	minecraft "com.mojang:minecraft:${minecraftVersion}"
+	mappings "net.fabricmc:yarn:${buildTools.getYarnVersion()}:v2"
+	modImplementation "net.fabricmc:fabric-loader:${buildTools.getFabricVersion()}"
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${buildTools.getFabricApiVersion()}"
+	modApi "com.terraformersmc:modmenu:${buildTools.getModMenuVersion()}"
+	modImplementation "org.mtr:MTR-fabric:${mtrVersion}+${minecraftVersion}"
 }
 
-processResources {
-    inputs.property "version", project.version
-
-    filesMatching("fabric.mod.json") {
-        expand "version": project.version
-    }
+repositories {
+	maven { url = "https://maven.terraformersmc.com/" }
 }
 
-shadowJar {
-    exclude "architectury.common.json"
-
-    configurations = [project.configurations.shadowCommon]
-    classifier "dev-shadow"
+java {
+	toolchain {
+		languageVersion.set(JavaLanguageVersion.of(buildTools.javaLanguageVersion))
+	}
+	withSourcesJar()
+	withJavadocJar()
 }
 
-remapJar {
-    input.set shadowJar.archiveFile
-    dependsOn shadowJar
-    classifier null
+tasks.register("setupFiles") {
+	copy {
+		outputs.upToDateWhen { false }
+		from "src/main/fabric.mod.template.json"
+		into "src/main/resources"
+		filter(ReplaceTokens, tokens: ["minecraft": minecraftVersion, "version": version])
+		rename "(.+).template.json", "\$1.json"
+	}
 }
 
-components.java {
-    withVariantsFromConfiguration(project.configurations.shadowRuntimeElements) {
-        skip()
-    }
-}
-
-task moveFabricBuilds() {
-    doLast {
-        delete fileTree("../build").matching {
-            include "**/MTR-Russian-Metro-Addon-fabric*"
-        }
-        copy {
-            from "build/libs"
-            into "../build/release"
-            exclude "*dev-shadow.jar"
-            rename "(.+)", "MTR-Russian-Metro-Addon-\$1"
-        }
-        copy {
-            from "../build/release"
-            into "../build/latest"
-            rename { fileName -> fileName.replace(rootProject.mod_version, "latest") }
-        }
-    }
-}
-
-afterEvaluate {
-	for (def task in it.tasks) {
-		if (task == tasks.build) {
-			task.finalizedBy tasks.moveFabricBuilds
-		}
+build {
+	doLast {
+		buildTools.copyBuildFile()
 	}
 }

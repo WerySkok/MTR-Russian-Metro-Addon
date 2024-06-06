@@ -1,0 +1,14 @@
+{
+	"itemGroup.russianmetro.russianmetro_stuff": "Russian Metro Addon",
+	"block.russianmetro.moscow_old_ticket_barrier_entrance": "Старый московский турникет (Вход)",
+	"block.russianmetro.moscow_old_ticket_barrier_exit": "Старый московский турникет (Выход)",
+	"block.russianmetro.moscow_old_ticket_barrier_side_cover": "Старый московский турникет (Боковая заглушка)",
+	"block.russianmetro.moscow_new_ticket_barrier_entrance": "Новый московский турникет (Вход)",
+	"block.russianmetro.moscow_new_ticket_barrier_exit": "Новый московский турникет (Выход)",
+	"block.russianmetro.moscow_new_ticket_barrier_side_cover": "Новый московский турникет (Боковая заглушка)",
+	"block.russianmetro.moscow_new_ticket_machine": "Московский автомат по продаже билетов",
+	"item.russianmetro.spb_horizontal_elevator_door": "Петербургские станционные двери «Горизонтальный лифт» (Чётные)",
+	"item.russianmetro.spb_horizontal_elevator_door_odd": "Петербургские станционные двери «Горизонтальный лифт» (Нечётные)",
+	"block.russianmetro.moscow_old_infosos_stand": "Московский стенд «Инфосос»",
+	"block.russianmetro.moscow_metro_logo": "Эмблема метро"
+}
