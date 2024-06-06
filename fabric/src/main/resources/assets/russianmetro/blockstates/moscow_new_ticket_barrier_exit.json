@@ -15,6 +15,21 @@
 			"model": "russianmetro:block/moscow_new_ticket_barrier_exit_closed",
 			"y": 270
 		},
+		"facing=north,open=pending": {
+			"model": "russianmetro:block/moscow_new_ticket_barrier_exit_closed"
+		},
+		"facing=east,open=pending": {
+			"model": "russianmetro:block/moscow_new_ticket_barrier_exit_closed",
+			"y": 90
+		},
+		"facing=south,open=pending": {
+			"model": "russianmetro:block/moscow_new_ticket_barrier_exit_closed",
+			"y": 180
+		},
+		"facing=west,open=pending": {
+			"model": "russianmetro:block/moscow_new_ticket_barrier_exit_closed",
+			"y": 270
+		},
 		"facing=north,open=open": {
 			"model": "russianmetro:block/moscow_new_ticket_barrier_exit_open"
 		},
