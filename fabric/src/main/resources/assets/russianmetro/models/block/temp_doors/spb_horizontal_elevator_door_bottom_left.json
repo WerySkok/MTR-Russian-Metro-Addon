@@ -1,9 +1,0 @@
-{
-	"parent": "russianmetro:block/temp_doors/spb_horizontal_elevator_door_left_base",
-	"textures": {
-		"bottom": "mtr:block/black",
-		"top": "mtr:block/transparent",
-		"particle": "russianmetro:block/temp_doors/spb_horizontal_elevator_door_bottom",
-		"back": "russianmetro:block/temp_doors/spb_horizontal_elevator_door_bottom_back"
-	}
-}
