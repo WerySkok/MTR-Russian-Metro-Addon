@@ -1,0 +1,28 @@
+{
+	"schemaVersion": 1,
+	"id": "russianmetro",
+	"version": "@version@",
+	"name": "MTR Russian Metro Addon",
+	"description": "A Russian Metro Addon for the Minecraft Transit Railway mod",
+	"authors": [
+		"WerySkok"
+	],
+	"license": "LGPL-3.0",
+	"icon": "icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"ru.weryskok.mtrrumetro.init.MainFabric"
+		],
+		"client": [
+			"ru.weryskok.mtrrumetro.init.MainFabricClient"
+		]
+	},
+	"mixins": [
+	],
+	"depends": {
+		"fabric": "*",
+		"minecraft": "@minecraft@",
+		"mtr": ">=4.0.0-beta-7 <4.1"
+	}
+}

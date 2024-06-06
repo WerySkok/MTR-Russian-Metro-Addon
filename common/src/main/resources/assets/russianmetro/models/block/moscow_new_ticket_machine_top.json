@@ -1,7 +1,0 @@
-{
-	"parent": "block/block",
-	"credit": "Made with Blockbench",
-	"textures": {
-		"particle": "russianmetro:block/moscow_new_ticket_machine"
-	}
-}

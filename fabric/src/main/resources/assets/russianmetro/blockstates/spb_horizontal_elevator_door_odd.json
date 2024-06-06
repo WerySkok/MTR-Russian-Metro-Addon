@@ -1,0 +1,98 @@
+{
+	"multipart": [
+		{
+			"when": {
+				"facing": "west",
+				"side": "left",
+				"half": "lower",
+				"temp": "true"
+			},
+			"apply": {
+				"model": "russianmetro:block/temp_doors/spb_horizontal_elevator_door_odd_bottom"
+			}
+		},
+		{
+			"when": {
+				"facing": "north",
+				"side": "left",
+				"half": "lower",
+				"temp": "true"
+			},
+			"apply": {
+				"model": "russianmetro:block/temp_doors/spb_horizontal_elevator_door_odd_bottom",
+				"y": 90
+			}
+		},
+		{
+			"when": {
+				"facing": "east",
+				"side": "left",
+				"half": "lower",
+				"temp": "true"
+			},
+			"apply": {
+				"model": "russianmetro:block/temp_doors/spb_horizontal_elevator_door_odd_bottom",
+				"y": 180
+			}
+		},
+		{
+			"when": {
+				"facing": "south",
+				"side": "left",
+				"half": "lower",
+				"temp": "true"
+			},
+			"apply": {
+				"model": "russianmetro:block/temp_doors/spb_horizontal_elevator_door_odd_bottom",
+				"y": 270
+			}
+		},
+		{
+			"when": {
+				"facing": "west",
+				"side": "left",
+				"half": "upper",
+				"temp": "true"
+			},
+			"apply": {
+				"model": "russianmetro:block/temp_doors/spb_horizontal_elevator_door_odd_top"
+			}
+		},
+		{
+			"when": {
+				"facing": "north",
+				"side": "left",
+				"half": "upper",
+				"temp": "true"
+			},
+			"apply": {
+				"model": "russianmetro:block/temp_doors/spb_horizontal_elevator_door_odd_top",
+				"y": 90
+			}
+		},
+		{
+			"when": {
+				"facing": "east",
+				"side": "left",
+				"half": "upper",
+				"temp": "true"
+			},
+			"apply": {
+				"model": "russianmetro:block/temp_doors/spb_horizontal_elevator_door_odd_top",
+				"y": 180
+			}
+		},
+		{
+			"when": {
+				"facing": "south",
+				"side": "left",
+				"half": "upper",
+				"temp": "true"
+			},
+			"apply": {
+				"model": "russianmetro:block/temp_doors/spb_horizontal_elevator_door_odd_top",
+				"y": 270
+			}
+		}
+	]
+}

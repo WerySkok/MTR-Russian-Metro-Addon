@@ -1,0 +1,9 @@
+{
+	"moscow_old_ticket_barrier_fail": {
+		"sounds": [
+			{
+				"name": "russianmetro:moscow_old_ticket_barrier_fail"
+			}
+		]
+	}
+}
