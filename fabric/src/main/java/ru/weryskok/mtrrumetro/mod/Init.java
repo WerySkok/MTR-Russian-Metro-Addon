@@ -13,6 +13,7 @@ public class Init {
 
 	public static void init() {
 		Blocks.init();
+		Items.init();
 		BlockEntityTypes.init();
 		CreativeModeTabs.init();
 		SoundEvents.init();
