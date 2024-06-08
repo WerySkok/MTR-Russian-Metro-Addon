@@ -27,5 +27,7 @@ public class InitClient {
 		REGISTRY_CLIENT.registerBlockRenderType(RenderLayer.getCutout(), Blocks.MOSCOW_OLD_INFOSOS_STAND);
 
 		REGISTRY_CLIENT.registerBlockRenderType(RenderLayer.getCutout(), Blocks.MOSCOW_METRO_LOGO);
+
+		REGISTRY_CLIENT.init();
 	}
 }
