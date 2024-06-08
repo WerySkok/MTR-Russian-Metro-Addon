@@ -41,32 +41,34 @@ public class BlockMoscowOldTicketBarrier extends BlockTicketBarrier {
 		if (!world.isClient() && PlayerEntity.isInstance(entity)) {
 			final Direction facing = IBlock.getStatePropertySafe(state, FACING);
 			final Vector3d playerPosRotated = entity.getPos().subtract(pos.getX() + 0.5, 0, pos.getZ() + 0.5).rotateY((float) Math.toRadians(facing.asRotation()));
-			final TicketSystem.EnumTicketBarrierOpen open = IBlock.getStatePropertySafe(state, OPEN);
+			final TicketSystem.EnumTicketBarrierOpen open = IBlock.getStatePropertySafe(state, new Property<>(OPEN.data));
 
 			if (isOpen(open) && playerPosRotated.getZMapped() > 0) {
 				world.setBlockState(pos, state.with(new Property<>(OPEN.data), TicketSystem.EnumTicketBarrierOpen.CLOSED));
-			} else if (!isOpen(open) && playerPosRotated.getZMapped() < 0 && !hasScheduledTick(world, pos, new Block(this))) {
+			} else if (open == TicketSystem.EnumTicketBarrierOpen.CLOSED && playerPosRotated.getZMapped() < 0 && !hasScheduledTick(world, pos, new Block(this))) {
+				final BlockPos posCopy = new BlockPos(pos.getX(), pos.getY(), pos.getZ());
+				world.setBlockState(posCopy, state.with(new Property<>(OPEN.data), TicketSystem.EnumTicketBarrierOpen.PENDING));
 				TicketSystem.passThrough(
-						world, pos, PlayerEntity.cast(entity),
+						world, posCopy, PlayerEntity.cast(entity),
 						isEntrance, !isEntrance,
 						org.mtr.mod.SoundEvents.TICKET_BARRIER.get(), org.mtr.mod.SoundEvents.TICKET_BARRIER_CONCESSIONARY.get(),
 						org.mtr.mod.SoundEvents.TICKET_BARRIER.get(), org.mtr.mod.SoundEvents.TICKET_BARRIER_CONCESSIONARY.get(),
 						SoundEvents.MOSCOW_OLD_TICKET_BARRIER_FAIL.get(),
 						false, newOpen -> {
-							world.setBlockState(pos, state.with(new Property<>(OPEN.data), newOpen));
+							world.setBlockState(posCopy, state.with(new Property<>(OPEN.data), newOpen));
 							switch (newOpen) {
 								case OPEN_CONCESSIONARY:
 								case OPEN:
-									world.setBlockState(pos, state.with(new Property<>(NORMAL_OPEN.data), EnumNormallyOpenedTicketBarrier.OPEN));
+									world.setBlockState(posCopy, state.with(new Property<>(NORMAL_OPEN.data), EnumNormallyOpenedTicketBarrier.OPEN));
 									break;
 								case CLOSED:
-									world.setBlockState(pos, state.with(new Property<>(NORMAL_OPEN.data), EnumNormallyOpenedTicketBarrier.CLOSED));
+									world.setBlockState(posCopy, state.with(new Property<>(NORMAL_OPEN.data), EnumNormallyOpenedTicketBarrier.CLOSED));
 //                        entity.hurt(DamageSource.CRAMMING, 1);
 									break;
 							}
 						}
 				);
-				scheduleBlockTick(world, pos, new Block(this), 40);
+				scheduleBlockTick(world, posCopy, new Block(this), 40);
 			}
 		}
 
