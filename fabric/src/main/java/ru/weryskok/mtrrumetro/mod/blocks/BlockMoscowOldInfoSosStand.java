@@ -60,7 +60,7 @@ public class BlockMoscowOldInfoSosStand extends BlockExtension implements Direct
 
 	@Override
 	public BlockState getPlacementState2(ItemPlacementContext ctx) {
-		return IBlock.isReplaceable(ctx, Direction.UP, 3) ? getDefaultState2().with(new Property<>(FACING.data), ctx.getPlayerFacing().data).with(new Property<>(THIRD.data), EnumThird.LOWER) : null;
+		return IBlock.isReplaceable(ctx, Direction.UP, 3) ? getDefaultState2().with(new Property<>(FACING.data), ctx.getPlayerFacing().data.getOpposite()).with(new Property<>(THIRD.data), EnumThird.LOWER) : null;
 	}
 
 	@Override
