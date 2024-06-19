@@ -10,5 +10,15 @@
 	"item.russianmetro.spb_horizontal_elevator_door": "St. Petersburg \"Horizontal Elevator\" Station Doors (Even)",
 	"item.russianmetro.spb_horizontal_elevator_door_odd": "St. Petersburg \"Horizontal Elevator\" Station Doors (Odd)",
 	"block.russianmetro.moscow_old_infosos_stand": "Moscow \"Info-SOS\" Stand",
-	"block.russianmetro.moscow_metro_logo": "Metro Emblem"
+	"block.russianmetro.moscow_metro_logo": "Metro Emblem",
+	"block.russianmetro.train_stop_sign": "First Car Stop Sign",
+	"block.russianmetro.train_stop_sign_1": "First Car Stop Sign (1 car)",
+	"block.russianmetro.train_stop_sign_2": "First Car Stop Sign (2 cars)",
+	"block.russianmetro.train_stop_sign_3": "First Car Stop Sign (3 cars)",
+	"block.russianmetro.train_stop_sign_4": "First Car Stop Sign (4 cars)",
+	"block.russianmetro.train_stop_sign_5": "First Car Stop Sign (5 cars)",
+	"block.russianmetro.train_stop_sign_6": "First Car Stop Sign (6 cars)",
+	"block.russianmetro.train_stop_sign_7": "First Car Stop Sign (7 cars)",
+	"block.russianmetro.train_stop_sign_8": "First Car Stop Sign (8 cars)",
+	"block.russianmetro.train_stop_sign_9": "First Car Stop Sign (9 cars)"
 }

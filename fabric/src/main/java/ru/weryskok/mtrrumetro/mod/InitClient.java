@@ -28,6 +28,17 @@ public class InitClient {
 
 		REGISTRY_CLIENT.registerBlockRenderType(RenderLayer.getCutout(), Blocks.MOSCOW_METRO_LOGO);
 
+		REGISTRY_CLIENT.registerBlockRenderType(RenderLayer.getCutout(), Blocks.TRAIN_STOP_SIGN);
+		REGISTRY_CLIENT.registerBlockRenderType(RenderLayer.getCutout(), Blocks.TRAIN_STOP_SIGN_1);
+		REGISTRY_CLIENT.registerBlockRenderType(RenderLayer.getCutout(), Blocks.TRAIN_STOP_SIGN_2);
+		REGISTRY_CLIENT.registerBlockRenderType(RenderLayer.getCutout(), Blocks.TRAIN_STOP_SIGN_3);
+		REGISTRY_CLIENT.registerBlockRenderType(RenderLayer.getCutout(), Blocks.TRAIN_STOP_SIGN_4);
+		REGISTRY_CLIENT.registerBlockRenderType(RenderLayer.getCutout(), Blocks.TRAIN_STOP_SIGN_5);
+		REGISTRY_CLIENT.registerBlockRenderType(RenderLayer.getCutout(), Blocks.TRAIN_STOP_SIGN_6);
+		REGISTRY_CLIENT.registerBlockRenderType(RenderLayer.getCutout(), Blocks.TRAIN_STOP_SIGN_7);
+		REGISTRY_CLIENT.registerBlockRenderType(RenderLayer.getCutout(), Blocks.TRAIN_STOP_SIGN_8);
+		REGISTRY_CLIENT.registerBlockRenderType(RenderLayer.getCutout(), Blocks.TRAIN_STOP_SIGN_9);
+
 		REGISTRY_CLIENT.init();
 	}
 }

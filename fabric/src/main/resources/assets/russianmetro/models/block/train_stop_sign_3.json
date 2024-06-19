@@ -1,0 +1,7 @@
+{
+	"parent": "russianmetro:block/train_stop_sign",
+	"textures": {
+		"0": "russianmetro:block/train_stop_sign_3",
+		"particle": "russianmetro:block/train_stop_sign_3"
+	}
+}

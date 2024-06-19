@@ -10,5 +10,15 @@
 	"item.russianmetro.spb_horizontal_elevator_door": "Петербургские станционные двери «Горизонтальный лифт» (Чётные)",
 	"item.russianmetro.spb_horizontal_elevator_door_odd": "Петербургские станционные двери «Горизонтальный лифт» (Нечётные)",
 	"block.russianmetro.moscow_old_infosos_stand": "Московский стенд «Инфосос»",
-	"block.russianmetro.moscow_metro_logo": "Эмблема метро"
+	"block.russianmetro.moscow_metro_logo": "Эмблема метро",
+	"block.russianmetro.train_stop_sign": "Знак остановки первого вагона",
+	"block.russianmetro.train_stop_sign_1": "Знак остановки первого вагона (1 вагон)",
+	"block.russianmetro.train_stop_sign_2": "Знак остановки первого вагона (2 вагона)",
+	"block.russianmetro.train_stop_sign_3": "Знак остановки первого вагона (3 вагона)",
+	"block.russianmetro.train_stop_sign_4": "Знак остановки первого вагона (4 вагона)",
+	"block.russianmetro.train_stop_sign_5": "Знак остановки первого вагона (5 вагонов)",
+	"block.russianmetro.train_stop_sign_6": "Знак остановки первого вагона (6 вагонов)",
+	"block.russianmetro.train_stop_sign_7": "Знак остановки первого вагона (7 вагонов)",
+	"block.russianmetro.train_stop_sign_8": "Знак остановки первого вагона (8 вагонов)",
+	"block.russianmetro.train_stop_sign_9": "Знак остановки первого вагона (9 вагонов)"
 }
