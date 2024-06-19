@@ -6,7 +6,6 @@ import com.google.gson.JsonParser;
 import com.jonafanho.apitools.ModId;
 import com.jonafanho.apitools.ModLoader;
 import com.jonafanho.apitools.ModProvider;
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -50,11 +49,6 @@ public class BuildTools {
 
 	public String getFabricApiVersion() {
 		final String modIdString = "fabric-api";
-		return new ModId(modIdString, ModProvider.MODRINTH).getModFiles(minecraftVersion, ModLoader.FABRIC, "").get(0).fileName.split(".jar")[0].replace(modIdString + "-", "");
-	}
-
-	public String getModMenuVersion() {
-		final String modIdString = "modmenu";
 		return new ModId(modIdString, ModProvider.MODRINTH).getModFiles(minecraftVersion, ModLoader.FABRIC, "").get(0).fileName.split(".jar")[0].replace(modIdString + "-", "");
 	}
 
