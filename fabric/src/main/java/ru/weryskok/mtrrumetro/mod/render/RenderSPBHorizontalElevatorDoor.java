@@ -8,7 +8,8 @@ import org.mtr.mapping.mapper.GraphicsHolder;
 import org.mtr.mapping.mapper.ModelPartExtension;
 import org.mtr.mod.block.IBlock;
 import org.mtr.mod.data.IGui;
-import org.mtr.mod.render.RenderTrains;
+import org.mtr.mod.render.MainRenderer;
+import org.mtr.mod.render.QueuedRenderLayer;
 import org.mtr.mod.render.StoredMatrixTransformations;
 import ru.weryskok.mtrrumetro.mod.blocks.BlockSPBHorizontalElevatorDoor;
 
@@ -49,14 +50,14 @@ public class RenderSPBHorizontalElevatorDoor extends BlockEntityRenderer<BlockSP
 
 			rightStoredMatrixTransformations.add(matricesNew -> matricesNew.translate(open * (!side ? -1 : 1), 0, 0));
 			rightStoredMatrixTransformations.add(matricesNew -> matricesNew.translate(-0.5, 0, 0));
-			RenderTrains.scheduleRender(new Identifier(String.format("russianmetro:textures/block/spb_horizontal_elevator_door_%s_%s.png", half ? "top" : "bottom", !side ? "right" : "left")), false, RenderTrains.QueuedRenderLayer.EXTERIOR, (graphicsHolderNew, offset) -> {
+			MainRenderer.scheduleRender(new Identifier(String.format("russianmetro:textures/block/spb_horizontal_elevator_door_%s_%s.png", half ? "top" : "bottom", !side ? "right" : "left")), false, QueuedRenderLayer.EXTERIOR, (graphicsHolderNew, offset) -> {
 				rightStoredMatrixTransformations.transform(graphicsHolderNew, offset);
 				MODEL_PSD.render(graphicsHolderNew, light, overlay, 1, 1, 1, 1);
 				graphicsHolderNew.pop();
 			});
 
 			if (half && !unlocked) {
-				RenderTrains.scheduleRender(new Identifier("mtr:textures/block/sign/door_not_in_use.png"), false, RenderTrains.QueuedRenderLayer.EXTERIOR, (graphicsHolderNew, offset) -> {
+				MainRenderer.scheduleRender(new Identifier("mtr:textures/block/sign/door_not_in_use.png"), false, QueuedRenderLayer.EXTERIOR, (graphicsHolderNew, offset) -> {
 					rightStoredMatrixTransformations.transform(graphicsHolderNew, offset);
 					MODEL_PSD_DOOR_LOCKED.render(graphicsHolderNew, light, overlay, 1, 1, 1, 1);
 					graphicsHolderNew.pop();
@@ -66,14 +67,14 @@ public class RenderSPBHorizontalElevatorDoor extends BlockEntityRenderer<BlockSP
 			storedMatrixTransformations.add(matricesNew -> matricesNew.translate(0.5, 0, 0));
 		}
 		storedMatrixTransformations.add(matricesNew -> matricesNew.translate(open * (side ? -1 : 1), 0, 0));
-		RenderTrains.scheduleRender(new Identifier(String.format("russianmetro:textures/block/spb_horizontal_elevator_door_%s_%s.png", half ? "top" : "bottom", side ? "right" : "left")), false, RenderTrains.QueuedRenderLayer.EXTERIOR, (graphicsHolderNew, offset) -> {
+		MainRenderer.scheduleRender(new Identifier(String.format("russianmetro:textures/block/spb_horizontal_elevator_door_%s_%s.png", half ? "top" : "bottom", side ? "right" : "left")), false, QueuedRenderLayer.EXTERIOR, (graphicsHolderNew, offset) -> {
 			storedMatrixTransformations.transform(graphicsHolderNew, offset);
 			MODEL_PSD.render(graphicsHolderNew, light, overlay, 1, 1, 1, 1);
 			graphicsHolderNew.pop();
 		});
 
 		if (half && !unlocked) {
-			RenderTrains.scheduleRender(new Identifier("mtr:textures/block/sign/door_not_in_use.png"), false, RenderTrains.QueuedRenderLayer.EXTERIOR, (graphicsHolderNew, offset) -> {
+			MainRenderer.scheduleRender(new Identifier("mtr:textures/block/sign/door_not_in_use.png"), false, QueuedRenderLayer.EXTERIOR, (graphicsHolderNew, offset) -> {
 				storedMatrixTransformations.transform(graphicsHolderNew, offset);
 				MODEL_PSD_DOOR_LOCKED.render(graphicsHolderNew, light, overlay, 1, 1, 1, 1);
 				graphicsHolderNew.pop();
