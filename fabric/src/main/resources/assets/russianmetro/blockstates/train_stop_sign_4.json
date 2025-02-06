@@ -1,0 +1,19 @@
+{
+	"variants": {
+		"facing=north": {
+			"model": "russianmetro:block/train_stop_sign_4"
+		},
+		"facing=east": {
+			"model": "russianmetro:block/train_stop_sign_4",
+			"y": 90
+		},
+		"facing=south": {
+			"model": "russianmetro:block/train_stop_sign_4",
+			"y": 180
+		},
+		"facing=west": {
+			"model": "russianmetro:block/train_stop_sign_4",
+			"y": 270
+		}
+	}
+}
