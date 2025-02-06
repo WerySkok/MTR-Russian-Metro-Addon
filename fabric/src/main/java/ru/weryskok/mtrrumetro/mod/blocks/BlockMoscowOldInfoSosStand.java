@@ -2,7 +2,6 @@ package ru.weryskok.mtrrumetro.mod.blocks;
 
 import org.mtr.mapping.holder.*;
 import org.mtr.mapping.mapper.BlockExtension;
-import org.mtr.mapping.mapper.BlockHelper;
 import org.mtr.mapping.mapper.DirectionHelper;
 import org.mtr.mapping.tool.HolderBase;
 import org.mtr.mod.block.IBlock;
@@ -14,7 +13,7 @@ import java.util.List;
 public class BlockMoscowOldInfoSosStand extends BlockExtension implements DirectionHelper, IBlock {
 
 	public BlockMoscowOldInfoSosStand() {
-		super(BlockHelper.createBlockSettings(true).strength(2).nonOpaque());
+		super(org.mtr.mod.Blocks.createDefaultBlockSettings(true).nonOpaque());
 	}
 
 	@Nonnull
