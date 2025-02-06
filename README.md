@@ -13,7 +13,7 @@ A Russian Metro Addon for the [Minecraft Transit Railway Mod](https://modrinth.c
 ## Credits
 **This mod was made for [Minecraft Urban Railway Server](https://murs-mc.ru) that is aimed at the post-Soviet construction and European architecture. Make sure to check it out!**
 
-[![wf](https://wiki.murs-mc.ru/w/images/thumb/4/43/MURS_Logo_Rounded.png/150px-MURS_Logo_Rounded.png "MURS Logo")](https://murs-mc.ru)
+[![Minecraft Urban Railway Server logo](https://wiki.murs-mc.ru/w/images/thumb/5/5a/MURS_Blue_logo_with_background.png/150px-MURS_Blue_logo_with_background.png "MURS Logo")](https://murs-mc.ru)
 
 This mod's code is based on [MTR Station Decoration Addon](https://github.com/AIDA64S/MTR-Station-Decoration-Addon).
 
