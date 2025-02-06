@@ -2,9 +2,9 @@ package ru.weryskok.mtrrumetro.mod.blocks;
 
 import org.mtr.mapping.holder.*;
 import org.mtr.mapping.mapper.BlockExtension;
-import org.mtr.mapping.mapper.BlockHelper;
 import org.mtr.mapping.mapper.DirectionHelper;
 import org.mtr.mapping.tool.HolderBase;
+import org.mtr.mod.Blocks;
 import org.mtr.mod.block.IBlock;
 
 import javax.annotation.Nonnull;
@@ -14,7 +14,7 @@ import java.util.List;
 public class BlockTrainStopSign extends BlockExtension implements DirectionHelper {
 
     public BlockTrainStopSign() {
-        super(BlockHelper.createBlockSettings(true).nonOpaque().strength(2));
+        super(Blocks.createDefaultBlockSettings(true).nonOpaque());
     }
 
     @Override

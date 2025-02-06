@@ -1,7 +1,7 @@
 package ru.weryskok.mtrrumetro.mod.blocks;
 
 import org.mtr.mapping.holder.*;
-import org.mtr.mapping.mapper.BlockHelper;
+import org.mtr.mod.Blocks;
 import org.mtr.mod.block.BlockTicketMachine;
 import org.mtr.mod.block.IBlock;
 
@@ -10,7 +10,7 @@ import javax.annotation.Nonnull;
 public class BlockMoscowNewTicketMachine extends BlockTicketMachine {
 
 	public BlockMoscowNewTicketMachine() {
-		super(BlockHelper.createBlockSettings(true, state -> 5).strength(2).nonOpaque());
+		super(Blocks.createDefaultBlockSettings(true, state -> 5).nonOpaque());
 	}
 
 	@Nonnull

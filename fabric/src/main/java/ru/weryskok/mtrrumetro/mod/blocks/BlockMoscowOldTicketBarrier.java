@@ -45,7 +45,7 @@ public class BlockMoscowOldTicketBarrier extends BlockTicketBarrier {
 
 			if (isOpen(open) && playerPosRotated.getZMapped() > 0) {
 				world.setBlockState(pos, state.with(new Property<>(OPEN.data), TicketSystem.EnumTicketBarrierOpen.CLOSED));
-			} else if (open == TicketSystem.EnumTicketBarrierOpen.CLOSED && playerPosRotated.getZMapped() < 0 && !hasScheduledTick(world, pos, new Block(this))) {
+			} else if (open == TicketSystem.EnumTicketBarrierOpen.CLOSED && playerPosRotated.getZMapped() < 0 && !hasScheduledBlockTick(world, pos, new Block(this))) {
 				final BlockPos posCopy = new BlockPos(pos.getX(), pos.getY(), pos.getZ());
 				world.setBlockState(posCopy, state.with(new Property<>(OPEN.data), TicketSystem.EnumTicketBarrierOpen.PENDING));
 				TicketSystem.passThrough(
