@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "russianmetro:spb_horizontal_elevator_door"
+    }
+  ],
+  "result": {
+    "item": "russianmetro:spb_horizontal_elevator_door_odd",
+    "count": 1
+  }
+}

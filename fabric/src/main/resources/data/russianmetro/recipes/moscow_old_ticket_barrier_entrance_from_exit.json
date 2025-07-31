@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "russianmetro:moscow_old_ticket_barrier_exit"
+    }
+  ],
+  "result": {
+    "item": "russianmetro:moscow_old_ticket_barrier_entrance",
+    "count": 1
+  }
+}
